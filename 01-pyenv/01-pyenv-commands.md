@@ -255,13 +255,26 @@ pyenv global system
 
 ## Cambiar la versión de Python local a un proyecto
 
-Cuando tienes un proyecto,
+Cuando tienes un proyecto, puedes cambiar la versión de Python para ese proyecto solamente
 
 ```bash
-pyenv local 3.8.18  # Solo en el proyecto actual
+cd ./proyecto1-python313  ## Ingresar a la carpeta principal del proyecto
+pyenv local 3.13.5  # Cambia la versión de Python a 3.13.5 (Solo para ese proyecto)
 ```
 
-## Cambiar temporalmente la versiónde Python en la terminal
+Ahora, se puede consultar la versión de Python que usa el proyecto, sin afectar otros proyecto o al sistema
+
+```bash
+python --version  # Debe mostrar Python 3.13.5
+```
+
+El resultado será mostrar la versión 3.13.5
+
+```text
+Python 3.13.5
+```
+
+## Cambiar temporalmente la versión de Python en la terminal
 
 Este comando le dice a pyenv que use temporalmente la versión 3.10.14 de Python solo en la terminal actual.
 
@@ -296,7 +309,7 @@ pyenv local 3.8.18
 
 📌 Esto crea un archivo .python-version en la carpeta, que hace que siempre uses Python 3.8.18 dentro de este proyecto.
 
-### Crea un entorno virtual con venv:
+### Crea un entorno virtual con venv
 
 ```bash
 python -m venv .venv
