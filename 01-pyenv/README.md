@@ -5,8 +5,8 @@ Este directorio contiene información sobre **pyenv**, una herramienta para gest
 
 ## 📚 Contenido
 
-- [Comandos de pyenv](pyenv_commands.md) → Comandos para instalar y usar `pyenv`.
-- [Preguntas frecuentes](pyenv_faq.md) → Preguntas frecuentes de `pyenv`.
+- [Comandos de pyenv](01-pyenv-commands.md) → Comandos para instalar y usar `pyenv`.
+- [Preguntas frecuentes](01-pyenv-faq.md) → Preguntas frecuentes de `pyenv`.
 
 ## 🎯 Resumen rápido
 
