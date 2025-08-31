@@ -292,6 +292,33 @@ Si usas Visual Studio Code, y tienes `.venv` en tu carpeta del proyecto:
 - Presiona Ctrl+Shift+P → Python: Select Interpreter
 - Elige la que diga .venv/bin/python
 
+## 💡Configurando VS Code para usar Bash y cargar pyenv correctamente
+
+Es posible que VS Code no cargue tu ~/.bashrc con las configuraciones de `pyenv`. Aquí te explico cómo solucionarlo:
+
+Solución paso a paso
+
+- Abre la configuración de VS Code:
+- Presiona Ctrl + Shift + P (o Cmd + Shift + P en Mac)
+- Escribe "Preferences: Open User Settings (JSON)"
+- Presiona Enter
+
+Agrega esta configuración, al final del archivo settings.json:
+
+```json
+{
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": ["--login"]
+    }
+  }
+}
+```
+
+Reinicia VS Code.
+
 ## 🏗️ Ejemplo: Crear Proyecto 1 con Python 3.8
 
 ### Crea una carpeta para el proyecto
