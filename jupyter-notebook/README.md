@@ -94,7 +94,6 @@ jupyter lab
 
 ✍️ Nota: Los notebooks aquí incluidos pueden abrirse tanto en la interfaz clásica de Jupyter Notebook como en JupyterLab o directamente desde Visual Studio Code con la extensión de Jupyter.
 
-
 ## ⚙️ El Kernel en Jupyter
 
 ### 🔎 Definición
@@ -358,4 +357,3 @@ Available kernels:
 Cuando abras un notebook, podrás elegirlo desde el menú Select Kernel → "Python 3.13.5 (Roadmap Examples)".
 
 ✅ Beneficio: cada proyecto puede tener su propio kernel, con sus dependencias aisladas, y tú seleccionas cuál usar en cada Notebook sin mezclar librerías.
-
