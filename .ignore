@@ -22,11 +22,11 @@ dist/
 # Entornos virtuales
 # ------------------------------
 # Ignora venv local
-venv/
-ENV/
-env/
-.venv/
-.env/
+**/venv/
+**/ENV/
+**/env/
+**/.venv/
+**/.env/
 
 # ------------------------------
 # Pyenv
