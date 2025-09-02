@@ -2,7 +2,6 @@
 
 Este documento explica de manera sencilla qué son los **módulos** y los **paquetes** en Python, cómo se importan y cómo funcionan.  
 
-
 ## 🔹 1. ¿Qué es un módulo?
 
 Un **módulo** en Python es simplemente un **archivo con extensión `.py`** que contiene código (funciones, clases o variables) que puedes reutilizar en otros programas.
@@ -35,7 +34,7 @@ Para que Python lo reconozca como paquete, la carpeta debe incluir un archivo es
 
 📌 **Ejemplo de estructura de un paquete:**
 
-```
+```text
 mi_proyecto/
 │
 ├── operaciones/              ← Paquete
@@ -118,8 +117,6 @@ print(sumar(1, 2))
 
 ⚠️ Puede causar **conflictos de nombres** si hay funciones repetidas.
 
----
-
 ## 🔹 5. ¿Dónde busca Python los módulos?
 
 Cuando haces un `import`, Python busca en este orden:
@@ -150,7 +147,7 @@ Esto significa:
 - **`ElementTree`** → Módulo dentro de `etree`.  
 - **`as ET`** → Alias (nombre corto para usar el módulo).  
 
-### Ejemplo práctico:
+### Ejemplo práctico
 
 Archivo XML (`ejemplo.xml`):
 
@@ -178,7 +175,6 @@ print(root[0].text)   # Hola Mundo
 ✅ Usa `import nombre_modulo` cuando quieras claridad.  
 ✅ Usa `from modulo import funcion` solo para lo necesario.  
 ⚠️ Evita `from modulo import *` salvo en casos de pruebas rápidas.  
-
 
 ## 📌 Resumen final
 
