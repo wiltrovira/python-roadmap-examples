@@ -1,8 +1,22 @@
+# .gitignore para proyecto Python con Poetry y VS Code
+
 # ------------------------------
-# Python
+# Entornos virtuales
 # ------------------------------
+
+.venv/
+**/venv/
+**/ENV/
+**/env/
+**/.env/
+
+# ------------------------------
+# Archivos de compilación y cachés de Python
+# ------------------------------
+
 __pycache__/
 *.py[cod]
+*$py.class
 *.pyo
 *.pyd
 *.pyc
@@ -12,35 +26,35 @@ __pycache__/
 *.manifest
 *.spec
 
+# ------------------------------
 # Distribuciones / empaquetado
+# ------------------------------
 build/
 dist/
 *.wheel
 *.tar.gz
 
 # ------------------------------
-# Entornos virtuales
+# Herramientas de desarrollo
 # ------------------------------
-# Ignora venv local
-**/venv/
-**/ENV/
-**/env/
-**/.venv/
-**/.env/
+# Poetry
+poetry.lock
 
-# ------------------------------
 # Pyenv
-# ------------------------------
-# Pyenv instala versiones de Python en ~/.pyenv
-# No es estrictamente necesario ignorar ~/.pyenv porque está fuera del proyecto
-# pero si tienes archivos de configuración local:
 .python-version
 
-# ------------------------------
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
 # Jupyter Notebook
-# ------------------------------
-# Ignora checkpoints automáticos
 .ipynb_checkpoints/
+
+# Black y Flake8 (no se requiere, pero si hay archivos temporales)
+*.log
+*.tmp
+pip-wheel-metadata/
 
 # ------------------------------
 # VS Code
@@ -53,6 +67,6 @@ dist/
 *.swp
 *.swo
 *.bak
-*.tmp
 .DS_Store
 Thumbs.db
+
