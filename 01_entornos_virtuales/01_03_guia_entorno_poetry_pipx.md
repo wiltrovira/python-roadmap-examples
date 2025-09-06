@@ -88,10 +88,10 @@ cd proyecto3-poetry
 Estructura creada:
 
 ```text
-proyecto3-poetry/
+proyecto313-poetry/
 ├── pyproject.toml
 ├── README.md
-├── proyecto3_poetry/
+├── proyecto313_poetry/
 │   └── __init__.py
 └── tests/
     └── __init__.py
