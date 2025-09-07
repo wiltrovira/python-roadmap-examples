@@ -2,7 +2,9 @@
 
 ## 1. Introducción
 
-Esta guía tiene como objetivo enseñar a los desarrolladores, especialmente principiantes, a crear proyectos en Python utilizando herramientas modernas que facilitan la gestión de dependencias, entornos virtuales y versiones de Python. Usar **Poetry**, **pipx** y **VS Code** permite mantener un flujo de trabajo limpio, reproducible y organizado.
+Esta guía tiene como objetivo enseñar a los desarrolladores, especialmente principiantes, a crear proyectos en Python utilizando herramientas modernas que facilitan la gestión de dependencias, entornos virtuales y versiones de Python. 
+
+Usar **Poetry**, **pipx** y **VS Code** permite mantener un flujo de trabajo limpio, reproducible y organizado.
 
 ### Beneficios
 
@@ -99,11 +101,11 @@ proyecto313-poetry/
 
 ## 8. Configurar Python por proyecto con pyenv
 
+Crea un archivo `.python-version` en el proyecto para usar esa versión automáticamente.
+
 ```bash
 pyenv local 3.13.5
 ```
-
-Crea un archivo `.python-version` en el proyecto para usar esa versión automáticamente.
 
 ## 9. Configurar el entorno virtual de Poetry
 
@@ -144,20 +146,58 @@ target-version = ['py310']
 
 ## 12. Ejecutar comandos dentro del proyecto
 
-### Con `poetry shell`
+### 1️⃣ No uses `poetry shell` directamente
+
+En Poetry 2.x, `poetry shell` ya no está incluido por defecto.
+
+### 2️⃣ Verifica el entorno virtual creado
 
 ```bash
-poetry shell
-flake8 ruta_del_codigo/
-black ruta_del_codigo/
+poetry env info -p
+# /home/usuario/.cache/pypoetry/virtualenvs/proyecto3-poetry-RbkKOhHl-py3.13
 ```
 
-### Sin activar el shell
+Esta es la ruta completa de tu entorno virtual.
 
 ```bash
-poetry run flake8 ruta_del_codigo/
-poetry run black ruta_del_codigo/
+poetry env list --full-path
+# /home/usuario/.cache/pypoetry/virtualenvs/proyecto3-poetry-RbkKOhHl-py3.13 (Activated)
 ```
+
+Muestra que ya está activado automáticamente para `poetry run`.
+
+### 3️⃣ Ejecutar comandos dentro del entorno virtual
+
+No necesitas activar manualmente un shell; usa siempre `poetry run`:
+
+```bash
+poetry run python --version
+poetry run python main.py
+poetry run flake8 .
+poetry run black .
+```
+
+Esto asegura que **siempre se use el entorno correcto**, sin depender del shell.  
+
+Es equivalente a haber hecho `poetry shell` y ejecutar los comandos desde ahí.
+
+### 4️⃣ Activar el entorno manualmente (opcional)
+
+Si realmente quieres un shell interactivo con el entorno activado, usa:
+
+```bash
+poetry env use /home/usuario/.cache/pypoetry/virtualenvs/proyecto3-poetry-RbkKOhHl-py3.13/bin/python
+poetry env activate /home/usuario/.cache/pypoetry/virtualenvs/proyecto3-poetry-RbkKOhHl-py3.13
+```
+
+Esto activa el entorno en tu shell actual, como hacía `poetry shell` antes.  
+Pero para la mayoría de los casos, `poetry run` es suficiente y recomendado.
+
+### 💡 Resumen práctico
+
+- **Para ejecutar scripts:** usa `poetry run <comando>`.
+- **Para un shell interactivo (opcional):** usa `poetry env activate <ruta-del-entorno>`.
+- `poetry shell` ya no es necesario a menos que instales el plugin de shell.
 
 ## 13. Flujo recomendado de trabajo
 
