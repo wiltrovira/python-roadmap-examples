@@ -1,5 +1,7 @@
 # Variables en Python
 
+Variables, Tipos de datos e Inmutabilidad [Tipos de datos e inmutabilidad](05_01_variables_introduccion.ipynb).
+
 ## ¿Qué es una variable?
 
 Una **variable** en Python es un **contenedor que almacena un valor** que puede cambiar durante la ejecución de un programa. Es una forma de **nombrar y guardar información** para poder usarla más adelante.
