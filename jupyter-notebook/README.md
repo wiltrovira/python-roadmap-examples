@@ -3,21 +3,21 @@
 Este directorio contiene los **notebooks de Jupyter** que utilizo para documentar el proceso de aprendizaje en Python.  
 Aquí encontrarás ejercicios, ejemplos prácticos y experimentos que ayudarán a comprender mejor la sintaxis y conceptos del lenguaje.
 
-## 🎯 Objetivo
+## 🎯 1. Objetivo
 
 - Practicar Python desde cero utilizando un entorno interactivo.
 - Documentar ejercicios y ejemplos de estudio.
 - Tener un registro organizado y versionado de mi progreso.
 - Usar los notebooks como referencia rápida en el futuro.
 
-## 🛠️ Tecnologías usadas
+## 🛠️ 2. Tecnologías usadas
 
 - **Python** 🐍
 - **Jupyter Notebook** y **JupyterLab** ✨
 - Entorno virtual gestionado con **venv/pyenv**
 - Control de versiones con **Git + GitHub**
 
-## 📂 Estructura
+## 📂 3. Estructura
 
 Cada notebook está orientado a un tema o bloque de ejercicios:
 
@@ -28,7 +28,7 @@ notebooks/
 ├── 03_funciones.ipynb
 ```
 
-## 📒 Introducción a Jupyter Notebook y JupyterLab
+## 📒 4. Introducción a Jupyter Notebook y JupyterLab
 
 Esta carpeta contiene ejemplos y notas sobre el uso de **Jupyter Notebook** y **JupyterLab**, dos entornos interactivos muy populares en el ecosistema de Python.
 
@@ -67,34 +67,7 @@ Permite trabajar con:
 | Fácil de usar para principiantes.               | Más flexible y poderosa para proyectos complejos.         |
 | Perfecto para aprender y hacer pruebas rápidas. | Perfecto para análisis de datos, ML y colaboración.       |
 
-## 🚀 Instalación básica en un entorno virtual (recomendado)
-
-Para mayor información: [Instalación de pyenv en Pop!_OS / Ubuntu 22.04](../01-pyenv/01-pyenv-commands.md)
-
-### Crear entorno virtual
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### Instalar Jupyter Notebook y JupyterLab
-
-```bash
-pip install notebook jupyterlab
-```
-
-### Iniciar Notebook
-
-jupyter notebook
-
-### Iniciar JupyterLab
-
-jupyter lab
-
-✍️ Nota: Los notebooks aquí incluidos pueden abrirse tanto en la interfaz clásica de Jupyter Notebook como en JupyterLab o directamente desde Visual Studio Code con la extensión de Jupyter.
-
-## ⚙️ El Kernel en Jupyter
+## ⚙️ 5. El Kernel en Jupyter
 
 ### 🔎 Definición
 
@@ -268,92 +241,103 @@ Ese python3 apunta al kernel por defecto (el Python donde instalaste Jupyter).
 
 ✅ Con este comando sabrás qué otros kernels tienes disponibles.
 
-## Cómo registrar un venv como kernel en Jupyter
+## 6. Cambiar la versión de Python local a un proyecto
 
-### 1️⃣ Crea (o activa) tu entorno virtual
-
-Si no lo tienes todavía, lo creas en tu proyecto:
+Cuando tienes un proyecto, puedes cambiar la versión de Python para ese proyecto solamente
 
 ```bash
-python -m venv .venv
+cd ./jupyter-notebook  ## Ingresar a la carpeta principal del proyecto
+pyenv local 3.13.5  # Cambia la versión de Python a 3.13.5 (Solo para ese proyecto)
 ```
 
-Actívalo (Linux/Mac):
+Ahora, se puede consultar la versión de Python que usa el proyecto, sin afectar otros proyecto o al sistema
 
 ```bash
-source .venv/bin/activate
+python --version  # Debe mostrar Python 3.13.5
 ```
 
-### 2️⃣ Instala ipykernel en ese entorno
-
-Con el entorno activado, instala la librería que permite a Jupyter reconocerlo:
-
-```bash
-pip install ipykernel
-```
-
-### 3️⃣ Registra el kernel
-
-Ejecuta (con el entorno activado):
-
-```bash
-python -m ipykernel install --user --name=py3135_roadmap_examples --display-name "Python 3.13.5 (Roadmap Examples)"
-```
-
-- `--name`: es el identificador interno del kernel (no debe tener espacios).
-  - Es el identificador interno.
-  - No admite espacios ni caracteres raros.
-  - Es el que verás en la salida de jupyter kernelspec list.
-  - Ejemplo: mi_proyecto_env, datascience, py311_venv, py3135_roadmap_examples.
-
-- `--display-name`: es el nombre amigable que verás en Jupyter al seleccionarlo.
-  - Es el nombre amigable que verás en Jupyter Notebook/Lab en el menú “Select Kernel”.
-  - Puede tener espacios, mayúsculas, símbolos.
-  - Ejemplo: "PPython 3.13.5 (Roadmap Examples)".
-
-  📌 Buenas prácticas para nombrarlos
-
-1. Incluye la versión de Python (muy útil si trabajas con varios entornos diferentes):
-
-   - `--name=py311_projectx`  
-   - `--display-name="Python 3.11 (Project X)"`
-
-2. Refleja el proyecto o propósito.  
-   Ejemplo para un proyecto de *machine learning*:  
-
-   - `--name=ml_env`  
-   - `--display-name="Python (ML Env)"`
-
-3. Mantén consistencia entre entornos:  
-
-   - Siempre usa minúsculas y guiones bajos en `--name`.  
-   - Usa formato uniforme en `--display-name`.  
-
-   Ejemplo para distintos proyectos:  
-
-   - `--name=py310_proyectoA` → `"Python 3.10 (Proyecto A)"`  
-   - `--name=py311_proyectoB` → `"Python 3.11 (Proyecto B)"`
-
-4. No uses nombres genéricos como `env` o `venv` → se vuelven ambiguos en la lista.
-
-### 4️⃣ Verifica que está registrado
-
-Ahora revisa qué kernels conoce Jupyter:
-
-```bash
-jupyter kernelspec list
-```
-
-Verás algo como:
+El resultado será mostrar la versión 3.13.5
 
 ```text
-Available kernels:
-  py3135_roadmap_examples    /home/usuario/.local/share/jupyter/kernels/py3135_roadmap_examples
-  python3                    /home/usuario/.pyenv/versions/3.13.5/share/jupyter/kernels/python3
+Python 3.13.5
 ```
 
-### 5️⃣ Úsalo en Jupyter Notebook / Lab
+## 7. Inicializar Poetry en el proyecto
 
-Cuando abras un notebook, podrás elegirlo desde el menú Select Kernel → "Python 3.13.5 (Roadmap Examples)".
+En la carpeta raíz del proyecto, ejecuta:
 
-✅ Beneficio: cada proyecto puede tener su propio kernel, con sus dependencias aisladas, y tú seleccionas cuál usar en cada Notebook sin mezclar librerías.
+```bash
+poetry init
+```
+
+Esto creará un archivo `pyproject.toml` donde se almacenará la configuración del proyecto y sus dependencias.  
+Puedes aceptar las opciones por defecto o personalizar el nombre, versión y otros metadatos.
+
+## 8. Configurar Python 3.13.5 en Poetry
+
+Como ya tienes `pyenv` configurado con la versión **3.13.5**, indicamos a Poetry que utilice ese intérprete:
+
+```bash
+poetry env use $(pyenv which python)
+```
+
+Esto asegura que el entorno virtual se cree utilizando la versión de Python definida en tu archivo `.python-version`.
+
+## 9. Instalar Jupyter e ipykernel
+
+Necesitamos instalar Jupyter y `ipykernel` dentro del entorno de Poetry para poder registrar un kernel en Jupyter:
+
+```bash
+poetry add --dev notebook ipykernel
+```
+
+- `--dev`: instala estas dependencias solo en el entorno de desarrollo, no en producción.  
+- `notebook`: proporciona la interfaz de Jupyter Notebook.  
+- `ipykernel`: permite que el entorno de Poetry se registre como un kernel de Jupyter.
+
+## 10. Crear un kernel de Jupyter para el proyecto
+
+Ejecuta el siguiente comando para registrar un kernel:
+
+```bash
+poetry run python -m ipykernel install --user --name=py3135_roadmap_examples --display-name "Python 3.13.5 (Roadmap Examples)"
+```
+
+- `--name`: identificador interno del kernel (ej. `proyecto-nb`).  
+- `--display-name`: nombre visible dentro de la interfaz de Jupyter.  
+
+De esta forma, cuando abras un notebook, podrás seleccionar **"Python 3.13.5 (Roadmap Examples)"** como kernel.
+
+## 11. Ejecutar Jupyter con Poetry
+
+Para iniciar Jupyter Notebook con el entorno de Poetry:
+
+```bash
+poetry run jupyter notebook
+```
+
+Esto abrirá la interfaz web de Jupyter en tu navegador. Luego selecciona el kernel que registraste en el paso anterior.
+
+## 12. Verificar y administrar entornos de Poetry
+
+Para listar los entornos creados:
+
+```bash
+poetry env list
+```
+
+Para eliminar un entorno específico:
+
+```bash
+poetry env remove py3135_roadmap_examples 
+```
+
+## 13. Resumen
+
+Con esta configuración:
+
+- **pyenv** asegura que usas la versión correcta de Python (3.13.5).  
+- **Poetry** maneja dependencias y entornos virtuales por proyecto.  
+- **ipykernel** registra el entorno como un kernel seleccionable en Jupyter Notebook.  
+
+Así logras un entorno aislado y reproducible para tu proyecto de notebooks en Python.
