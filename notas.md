@@ -31,7 +31,7 @@ Breve explicación del tema:
 - Relación con temas previos o futuros.
 
 ---
-
+ 
 ## 🎯 Objetivos de aprendizaje
 Al finalizar podrás:
 - [ ] Objetivo 1 (medible, p. ej. *“usar X para Y”*).
